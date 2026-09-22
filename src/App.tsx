@@ -17,6 +17,7 @@ import { StipendCalculatorModal } from './components/StipendCalculatorModal';
 
 import { StickyBottomBar } from './components/StickyBottomBar';
 import { CustomCursor } from './components/CustomCursor';
+import { openConsultationWindow } from './utils/consultation';
 
 export default function App() {
   const [isApplicationOpen, setIsApplicationOpen] = useState(false);
@@ -25,16 +26,7 @@ export default function App() {
   const handleOpenApplication = () => {
     setIsApplicationOpen(false);
     setIsCalculatorOpen(false);
-    const formElement = document.getElementById('fast-inquiry-form');
-    const sectionElement = document.getElementById('fast-inquiry');
-
-    if (window.innerWidth < 1024 && formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    openConsultationWindow();
   };
 
   return (

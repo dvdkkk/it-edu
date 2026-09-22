@@ -1,7 +1,8 @@
 import React from 'react';
-import { COURSE_SUMMARY } from '../data/bootcampData';
+import { COURSE_SUMMARY, COMPANY_INFO } from '../data/bootcampData';
 import aiChipBg from '../assets/images/ai_chip_original_bg_1785136173674.jpg';
 import { ScrollReveal } from './ScrollReveal';
+import { CONSULTATION_URL, handleSmartPhoneClick } from '../utils/consultation';
 import {
   Sparkles,
   MapPin,
@@ -203,8 +204,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenApplication, onO
 
             <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#c5a47e]/20 text-center">
               <span className="text-[11px] text-gray-400 block mb-1">문의 전화</span>
-              <a href="tel:010-4631-2547" className="text-xl font-black text-[#c5a47e] hover:underline">
-                010-4631-2547
+              <a
+                href={CONSULTATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => handleSmartPhoneClick(e, COMPANY_INFO.phone)}
+                className="text-xl font-black text-[#c5a47e] hover:underline cursor-pointer"
+                title={`전화 문의 (${COMPANY_INFO.phone})`}
+              >
+                {COMPANY_INFO.phone}
               </a>
             </div>
           </div>

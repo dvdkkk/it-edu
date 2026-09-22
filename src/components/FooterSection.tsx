@@ -4,6 +4,7 @@ import { Phone } from 'lucide-react';
 import { KLogoIcon } from './KLogoIcon';
 import { PrivacyModal } from './PrivacyModal';
 import { TermsModal } from './TermsModal';
+import { CONSULTATION_URL, handleSmartPhoneClick } from '../utils/consultation';
 
 export const FooterSection: React.FC = () => {
   const [modalType, setModalType] = useState<'terms' | 'privacy' | null>(null);
@@ -32,7 +33,14 @@ export const FooterSection: React.FC = () => {
 
             <div className="flex items-center gap-3 text-white font-black text-lg">
               <Phone className="w-5 h-5 text-[#c5a47e]" />
-              <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-[#c5a47e] transition-colors">
+              <a
+                href={CONSULTATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => handleSmartPhoneClick(e, COMPANY_INFO.phone)}
+                className="hover:text-[#c5a47e] transition-colors cursor-pointer"
+                title={`전화 문의 (${COMPANY_INFO.phone})`}
+              >
                 {COMPANY_INFO.phone}
               </a>
             </div>
